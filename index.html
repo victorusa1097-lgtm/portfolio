@@ -623,6 +623,47 @@ window.addEventListener('scroll',()=>{
     a.classList.toggle('active', a.getAttribute('href')==='#'+current);
   });
 });
+<script>
+// ── Scroll reveal ──
+const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+  });
+},{threshold:0.12});
+revealEls.forEach(el=>observer.observe(el));
+
+// ── Navbar shrink + active link ──
+const navbar = document.getElementById('navbar');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll',()=>{
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('back-top').classList.toggle('show', window.scrollY > 400);
+
+  let current = '';
+  sections.forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href')==='#'+current);
+  });
+});
 </script>
+
+<!-- 🎵 ADD THIS BELOW -->
+<audio id="bg-music" autoplay loop muted>
+  <source src="Titanic-Instrumental.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener("click", function () {
+    const music = document.getElementById("bg-music");
+    music.muted = false;
+    music.play();
+  }, { once: true });
+</script>
+
 </body>
 </html>
