@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inbound Calls & Lead Gen — Uddipta Chakraborty</title>
+<meta name="description" content="High-quality inbound calls, MMS campaigns, and verified targeted leads. Mixed call packages available — SMS, MMS, and All-in-One bundles.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A96E;
+  --gold-light:#E8D5B0;
+  --gold-dark:#8C6D3F;
+  --teal:#1a3a35;
+  --teal-dark:#0f2420;
+  --teal-mid:#22504a;
+  --cream:#FAF8F3;
+  --ink:#13110F;
+  --ink-muted:#7A7269;
+  --div:rgba(201,169,110,0.22);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--teal-dark);color:var(--cream);overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;width:100%;z-index:100;
+  padding:1.1rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(15,36,32,0.96);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,169,110,.15);
+  transition:padding .3s;
+}
+nav.scrolled{padding:.75rem 3rem;box-shadow:0 2px 20px rgba(0,0,0,.2);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;letter-spacing:.1em;color:var(--cream);text-decoration:none;}
+.nav-back{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;transition:color .3s;
+}
+.nav-back:hover{color:var(--gold-light);}
+.nav-back::before{content:'←';font-size:.8rem;}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  position:relative;
+  overflow:hidden;
+  background:var(--teal-dark);
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 0% 50%, rgba(201,169,110,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 100% 0%, rgba(34,80,74,0.5) 0%, transparent 55%);
+  pointer-events:none;
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3.5rem 4rem;
+  position:relative;z-index:2;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.3rem .9rem;
+  border:1px solid rgba(201,169,110,.3);
+  background:rgba(201,169,110,.07);
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.5rem;width:fit-content;
+}
+.hero-eyebrow{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(250,248,243,.35);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem;}
+.hero-eyebrow::after{content:'';display:inline-block;width:40px;height:1px;background:rgba(201,169,110,.3);}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:300;line-height:1.0;margin-bottom:1.2rem;}
+.hero-title .line-gold{color:var(--gold);font-style:italic;}
+.hero-title .line-light{color:rgba(250,248,243,.95);}
+.hero-sub{font-size:.82rem;color:rgba(250,248,243,.5);line-height:1.9;font-weight:300;max-width:400px;margin-bottom:2rem;}
+.hero-cta-row{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;
+  background:var(--gold-dark);color:var(--cream);
+  font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;text-decoration:none;transition:background .3s;
+}
+.btn-primary:hover{background:var(--gold);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;
+  background:transparent;color:rgba(250,248,243,.6);
+  font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.2em;
+  text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(201,169,110,.2);transition:border-color .3s,color .3s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ticker */
+.ticker{border-top:1px solid rgba(201,169,110,.12);padding-top:1.5rem;overflow:hidden;}
+.ticker-inner{display:flex;gap:2.5rem;white-space:nowrap;}
+.ticker-item{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(250,248,243,.25);display:flex;align-items:center;gap:.6rem;}
+.ticker-item::before{content:'◆';color:var(--gold);font-size:.4rem;}
+
+/* hero right — pricing preview */
+.hero-right{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3rem 4rem 2rem;
+  position:relative;z-index:2;
+  gap:.8rem;
+}
+.hero-badge-top{
+  position:absolute;top:7rem;right:3rem;
+  padding:.4rem 1rem;
+  border:1px solid rgba(201,169,110,.25);
+  background:rgba(201,169,110,.06);
+  font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  text-align:center;line-height:1.6;
+}
+.price-block{
+  border:1px solid rgba(201,169,110,.15);
+  background:rgba(34,80,74,.3);
+  padding:1.5rem 1.8rem;
+  transition:background .3s,border-color .3s;
+}
+.price-block:hover{background:rgba(34,80,74,.5);border-color:rgba(201,169,110,.3);}
+.price-block-featured{border-color:var(--gold-dark);background:rgba(140,109,63,.12);}
+.price-block-label{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.price-block-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--cream);margin-bottom:.2rem;}
+.price-block-desc{font-size:.65rem;color:rgba(250,248,243,.35);font-weight:300;}
+.price-block-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold-light);line-height:1;margin-top:.8rem;}
+.price-block-num span{font-size:.65rem;font-family:'DM Sans',sans-serif;color:rgba(250,248,243,.25);letter-spacing:.1em;margin-left:.3rem;}
+
+/* ── SECTION COMMON ── */
+section{padding:5rem 3rem;}
+.s-eyebrow{font-size:.58rem;letter-spacing:.33em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem;}
+.s-eyebrow::after{content:'';display:inline-block;height:1px;width:40px;background:var(--gold);}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:1rem;}
+.s-title em{font-style:italic;color:var(--gold-light);}
+
+/* ── PACKAGES SECTION ── */
+#packages{background:#0f2420;padding:5rem 3rem;}
+.packages-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;}
+.packages-note{font-size:.62rem;letter-spacing:.15em;color:rgba(250,248,243,.22);text-transform:uppercase;text-align:right;}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.pkg-card{
+  border:1px solid rgba(201,169,110,.15);
+  background:rgba(26,58,53,.4);
+  padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background .4s,border-color .4s;
+}
+.pkg-card::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:2px;
+  background:rgba(201,169,110,.2);transition:background .4s;
+}
+.pkg-card:hover{background:rgba(26,58,53,.7);border-color:rgba(201,169,110,.3);}
+.pkg-card:hover::before{background:var(--gold);}
+.pkg-card-popular{border-color:var(--gold-dark);background:rgba(140,109,63,.1);}
+.pkg-card-popular::before{background:var(--gold);}
+
+.pkg-badge{
+  position:absolute;top:1.2rem;right:1.2rem;
+  font-size:.48rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:.25rem .65rem;
+  background:rgba(201,169,110,.15);color:var(--gold);
+  border:1px solid rgba(201,169,110,.25);
+}
+
+.pkg-icon{
+  width:48px;height:48px;
+  border:1px solid rgba(201,169,110,.2);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.3rem;
+}
+.pkg-label{font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;display:block;}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--cream);margin-bottom:.6rem;line-height:1.1;}
+.pkg-desc{font-size:.73rem;color:rgba(250,248,243,.4);line-height:1.85;font-weight:300;margin-bottom:1.5rem;}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold-light);line-height:1;}
+.pkg-price span{font-size:.65rem;font-family:'DM Sans',sans-serif;color:rgba(250,248,243,.25);letter-spacing:.1em;margin-left:.3rem;}
+.pkg-divider{height:1px;background:rgba(201,169,110,.1);margin:1.4rem 0;}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+.pkg-features li{font-size:.72rem;color:rgba(250,248,243,.4);font-weight:300;display:flex;align-items:center;gap:.55rem;line-height:1.5;}
+.pkg-features li::before{content:'—';color:var(--gold);font-size:.6rem;flex-shrink:0;}
+.pkg-cta{
+  display:block;text-align:center;
+  margin-top:1.8rem;padding:.75rem;
+  border:1px solid rgba(201,169,110,.2);
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(250,248,243,.5);text-decoration:none;
+  transition:border-color .3s,color .3s,background .3s;
+}
+.pkg-cta:hover,.pkg-cta-primary{border-color:var(--gold-dark);color:var(--gold);background:rgba(140,109,63,.1);}
+.pkg-cta-primary{background:var(--gold-dark)!important;color:var(--cream)!important;}
+.pkg-cta-primary:hover{background:var(--gold)!important;}
+
+/* ── FEATURES ── */
+#features{background:var(--teal-dark);}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(201,169,110,.1);margin-top:2.5rem;}
+.feat-item{background:var(--teal-dark);padding:2.2rem 1.8rem;transition:background .4s;}
+.feat-item:hover{background:rgba(26,58,53,.6);}
+.feat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:rgba(201,169,110,.2);line-height:1;margin-bottom:.5rem;}
+.feat-head{font-size:.72rem;font-weight:500;letter-spacing:.05em;color:var(--cream);margin-bottom:.5rem;}
+.feat-text{font-size:.72rem;color:rgba(250,248,243,.35);line-height:1.8;font-weight:300;}
+
+/* ── CTA STRIP ── */
+#cta-strip{
+  background:rgba(140,109,63,.12);
+  border-top:1px solid rgba(201,169,110,.15);
+  border-bottom:1px solid rgba(201,169,110,.15);
+  padding:3.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1.5rem;
+}
+.cta-strip-text{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:var(--cream);line-height:1.2;}
+.cta-strip-text em{font-style:italic;color:var(--gold-light);}
+.cta-strip-sub{font-size:.7rem;color:rgba(250,248,243,.35);margin-top:.3rem;letter-spacing:.08em;}
+
+/* ── FOOTER ── */
+footer{
+  background:#080d0c;padding:2rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  border-top:1px solid rgba(201,169,110,.08);
+}
+.footer-copy{font-size:.58rem;letter-spacing:.13em;color:rgba(250,248,243,.2);text-transform:uppercase;}
+.footer-back{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.6;transition:opacity .3s;}
+.footer-back:hover{opacity:1;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  nav{padding:1rem 1.5rem;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:7rem 1.5rem 3rem;}
+  section,#packages,#cta-strip{padding:3.5rem 1.5rem;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .feat-grid{grid-template-columns:1fr 1fr;}
+  .packages-header{flex-direction:column;align-items:flex-start;}
+  footer{flex-direction:column;text-align:center;}
+}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Uddipta Chakraborty</a>
+  <a href="index.html#services" class="nav-back">Back to Services</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Premium Packages 2025</div>
+    <p class="hero-eyebrow">Our Services</p>
+    <h1 class="hero-title">
+      <span class="line-light">Outreach</span><br>
+      <span class="line-gold">That</span><br>
+      <span class="line-light">Converts</span>
+    </h1>
+    <p class="hero-sub">Reach your audience through SMS calls, multimedia MMS, and full mixed campaigns. Every lead is verified, targeted, and delivered for maximum ROI.</p>
+    <div class="hero-cta-row">
+      <a href="#packages" class="btn-primary">View All Packages →</a>
+      <a href="index.html#contact" class="btn-ghost">Contact for Custom</a>
+    </div>
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-item">High Inbound Quality</span>
+        <span class="ticker-item">Domain Verified Calls</span>
+        <span class="ticker-item">Targeted by Niche</span>
+        <span class="ticker-item">Volume Discounts</span>
+        <span class="ticker-item">Mixed Calls Available</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-badge-top">Premium Packages 2025<br>Reach Every Channel</div>
+
+    <div class="price-block reveal">
+      <div class="price-block-label">SMS Calls</div>
+      <div class="price-block-name">Voice Outreach</div>
+      <div class="price-block-desc">Screened &amp; qualified</div>
+      <div class="price-block-num">₹400 <span>per campaign</span></div>
+    </div>
+
+    <div class="price-block reveal">
+      <div class="price-block-label">MMS Calls</div>
+      <div class="price-block-name">Multimedia</div>
+      <div class="price-block-desc">Rich media delivery</div>
+      <div class="price-block-num">₹450 <span>per campaign</span></div>
+    </div>
+
+    <div class="price-block price-block-featured reveal">
+      <div class="price-block-label">✦ Best Value — Paid + Mix Bundle</div>
+      <div class="price-block-num">₹800 <span>per campaign</span></div>
+      <div class="price-block-desc" style="margin-top:.5rem;">All channels · Max ROI · Volume discounts</div>
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="packages-header reveal">
+    <div>
+      <p class="s-eyebrow">Package Details</p>
+      <h2 class="s-title">Choose your <em>outreach plan</em></h2>
+    </div>
+    <div class="packages-note">All prices per campaign · Contact for bulk rates</div>
+  </div>
+
+  <div class="pkg-grid">
+
+    <!-- Voice Plan -->
+    <div class="pkg-card reveal">
+      <div class="pkg-icon">
+        <svg viewBox="0 0 32 32" fill="none" width="20" height="20">
+          <circle cx="16" cy="16" r="10" stroke="#C9A96E" stroke-width="1.2"/>
+          <path d="M11 11.5C11 11.5 12 10 13.5 10s2.5 1.8 2.5 1.8l-1.3 2.2s-.4.7 0 1.3c.4.7 2.5 3 3 3.5s1.3.3 1.3.3L21 17.5s1.3 1.3 1.3 2.2S21 21 21 21c-4.5 2.3-13-7-10-11.5z" stroke="#C9A96E" stroke-width="1" fill="none"/>
+        </svg>
+      </div>
+      <span class="pkg-label">Voice Plan</span>
+      <h3 class="pkg-name">SMS Calls</h3>
+      <p class="pkg-desc">Real, targeted inbound calls delivered directly to your business — screened and qualified for maximum conversion potential across your niche.</p>
+      <div class="pkg-price">₹400 <span>per campaign</span></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>High-quality inbound calls</li>
+        <li>Screened &amp; verified leads</li>
+        <li>Niche targeting available</li>
+        <li>Real-time delivery</li>
+      </ul>
+      <a href="index.html#contact" class="pkg-cta">Get Started →</a>
+    </div>
+
+    <!-- MMS Plan -->
+    <div class="pkg-card pkg-card-popular reveal">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-icon">
+        <svg viewBox="0 0 32 32" fill="none" width="20" height="20">
+          <rect x="6" y="8" width="20" height="16" rx="2" stroke="#C9A96E" stroke-width="1.2"/>
+          <circle cx="11" cy="14" r="2" stroke="#C9A96E" stroke-width=".9"/>
+          <path d="M6 20l4-4 3 3 4-5 5 6" stroke="#C9A96E" stroke-width="1" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="pkg-label">Multimedia Plan</span>
+      <h3 class="pkg-name">MMS Calls</h3>
+      <p class="pkg-desc">Premium multimedia messaging — images, rich content &amp; verified data delivered via MMS for higher engagement and stronger brand recall.</p>
+      <div class="pkg-price">₹450 <span>per campaign</span></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Rich media MMS delivery</li>
+        <li>Images &amp; branded content</li>
+        <li>Verified data lists</li>
+        <li>Higher engagement rate</li>
+        <li>Domain paid calls included</li>
+      </ul>
+      <a href="index.html#contact" class="pkg-cta pkg-cta-primary">Get Started →</a>
+    </div>
+
+    <!-- All-in-One Plan -->
+    <div class="pkg-card reveal">
+      <div class="pkg-icon">
+        <svg viewBox="0 0 32 32" fill="none" width="20" height="20">
+          <circle cx="16" cy="16" r="10" stroke="#C9A96E" stroke-width="1.2"/>
+          <path d="M11 16l3.5 3.5L21 11" stroke="#C9A96E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="pkg-label">All-in-One Plan</span>
+      <h3 class="pkg-name">Paid + Mix</h3>
+      <p class="pkg-desc">The complete outreach bundle — SMS, MMS &amp; paid domain calls combined for total market coverage and the highest possible lead volume.</p>
+      <div class="pkg-price">₹800 <span>per campaign</span></div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>SMS + MMS + Domain calls</li>
+        <li>Mixed call campaigns</li>
+        <li>Maximum reach &amp; ROI</li>
+        <li>Volume discounts available</li>
+        <li>Priority support</li>
+        <li>Custom targeting</li>
+      </ul>
+      <a href="index.html#contact" class="pkg-cta">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <p class="s-eyebrow reveal">Why Choose This</p>
+  <h2 class="s-title reveal">Built for <em>real results</em></h2>
+  <div class="feat-grid">
+    <div class="feat-item reveal">
+      <div class="feat-num">01</div>
+      <p class="feat-head">Verified Leads</p>
+      <p class="feat-text">Every lead is checked and verified before delivery — no junk, no wasted campaigns.</p>
+    </div>
+    <div class="feat-item reveal">
+      <div class="feat-num">02</div>
+      <p class="feat-head">Niche Targeting</p>
+      <p class="feat-text">Reach exactly the right audience for your business — filtered by industry, location, and intent.</p>
+    </div>
+    <div class="feat-item reveal">
+      <div class="feat-num">03</div>
+      <p class="feat-head">Mixed Channels</p>
+      <p class="feat-text">SMS, MMS, and voice calls combined for multi-touch campaigns that convert at every level.</p>
+    </div>
+    <div class="feat-item reveal">
+      <div class="feat-num">04</div>
+      <p class="feat-head">Volume Discounts</p>
+      <p class="feat-text">Bigger campaigns get better rates. Contact for custom bulk pricing tailored to your needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div id="cta-strip">
+  <div>
+    <p class="cta-strip-text">Contact us for <em>custom packages</em><br>&amp; volume pricing</p>
+    <p class="cta-strip-sub">Lead Generation &amp; Outreach · Mixed Calls Available</p>
+  </div>
+  <a href="index.html#contact" class="btn-primary">Get in Touch →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2025 Uddipta Chakraborty — Developer & Software Creator</span>
+  <a href="index.html" class="footer-back">← Back to Main Site</a>
+</footer>
+
+<script>
+// Nav shrink
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const els = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:0.1});
+els.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

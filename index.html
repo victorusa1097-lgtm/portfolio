@@ -66,6 +66,55 @@ nav.scrolled{padding:.75rem 3rem;box-shadow:0 2px 20px rgba(19,17,15,.08);}
 .nav-links a:hover,.nav-links a.active{color:var(--gold);}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%;}
 
+/* ── NAV DROPDOWN ── */
+.nav-dropdown-wrap{position:relative;list-style:none;}
+.nav-dropdown-trigger{cursor:pointer;}
+
+/* The invisible padding bridge — stops the dropdown vanishing when mouse moves down */
+.nav-dropdown-wrap::after{
+  content:'';
+  position:absolute;
+  top:100%;left:-20px;right:-20px;
+  height:18px; /* bridges the gap between trigger and menu */
+  background:transparent;
+}
+.nav-dropdown{
+  display:none;
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%);
+  background:rgba(250,248,243,0.98);
+  border:1px solid var(--div);
+  box-shadow:0 8px 32px rgba(19,17,15,.1);
+  min-width:190px;
+  list-style:none;
+  z-index:200;
+  padding:.4rem 0;
+}
+.nav-dropdown::before{
+  /* visual arrow */
+  content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);
+  width:10px;height:10px;background:rgba(250,248,243,0.98);
+  border-left:1px solid var(--div);border-top:1px solid var(--div);
+  rotate:45deg;
+}
+/* invisible hover bridge above the dropdown so mouse can travel down without losing hover */
+.nav-dropdown::after{
+  content:'';
+  position:absolute;bottom:100%;left:0;right:0;
+  height:18px;
+  background:transparent;
+}
+.nav-dropdown li{padding:0;}
+.nav-dropdown li a{
+  display:block;padding:.7rem 1.3rem;
+  font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-muted);text-decoration:none;
+  transition:color .2s,background .2s;
+  white-space:nowrap;
+}
+.nav-dropdown li a::after{display:none;}
+.nav-dropdown li a:hover{color:var(--gold-dark);background:rgba(201,169,110,.07);}
+.nav-dropdown-wrap:hover .nav-dropdown{display:block;}
+
 /* Availability badge */
 .avail-badge{
   display:inline-flex;align-items:center;gap:.45rem;
@@ -266,6 +315,16 @@ h1{animation-delay:.22s;}
 .cta-row{animation-delay:.5s;}
 .hero-stats{animation-delay:.62s;}
 
+/* ── INBOUND BANNER ── */
+.inbound-banner{border:1px solid rgba(201,169,110,.18);background:rgba(201,169,110,.04);}
+.inbound-banner-inner{display:flex;justify-content:space-between;align-items:center;gap:2rem;padding:2.5rem;flex-wrap:wrap;}
+.inbound-banner-right{display:flex;flex-direction:column;gap:.6rem;align-items:flex-end;min-width:220px;}
+.inbound-pill{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:#FAF8F3;padding:.5rem 1.2rem;border:1px solid rgba(201,169,110,.2);text-align:right;white-space:nowrap;}
+.inbound-pill span{font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.15em;color:rgba(250,248,243,.35);text-transform:uppercase;}
+.inbound-pill-gold{border-color:var(--gold);color:var(--gold-light);}
+.inbound-cta{display:inline-flex;align-items:center;gap:.4rem;margin-top:.6rem;padding:.7rem 1.4rem;background:var(--gold-dark);color:#FAF8F3;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .3s;}
+.inbound-cta:hover{background:var(--gold);}
+
 /* ── RESPONSIVE ── */
 .proj-item:hover .proj-hover-overlay{background:rgba(9,8,10,0.7) !important;}
 
@@ -298,7 +357,13 @@ h1{animation-delay:.22s;}
   <a href="#hero" class="nav-logo">Uddipta Chakraborty</a>
   <ul class="nav-links">
   <li><a href="#about">About</a></li>
-  <li><a href="#services">Services</a></li>
+  <li class="nav-dropdown-wrap">
+    <a href="#services" class="nav-dropdown-trigger">Services ▾</a>
+    <ul class="nav-dropdown">
+      <li><a href="#services">Website Packages</a></li>
+      <li><a href="inbound-calls.html">Get Inbound Calls</a></li>
+    </ul>
+  </li>
   <li><a href="#projects">Projects</a></li>
   <li><a href="blog.html">Blog</a></li>
   <li><a href="#reviews">Reviews</a></li>
@@ -430,6 +495,25 @@ h1{animation-delay:.22s;}
       </ul>
     </div>
   </div>
+
+  <!-- INBOUND CALLS BANNER -->
+  <div class="inbound-banner reveal" style="margin-top:2.5rem;">
+    <div class="inbound-banner-inner">
+      <div>
+        <span class="pricing-label" style="margin-bottom:.5rem;display:block;">Lead Generation & Outreach</span>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:#FAF8F3;line-height:1.1;margin-bottom:.4rem;">MMS, Call <em style="font-style:italic;color:var(--gold-light);">&</em> Email</h3>
+        <p style="font-size:.7rem;color:rgba(250,248,243,.38);letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;">Mixed Calls Available — Inbound · Domain · Targeted</p>
+        <p style="font-size:.76rem;color:rgba(250,248,243,.45);line-height:1.85;font-weight:300;max-width:400px;">High-quality inbound calls, paid domain calls, verified leads — delivered via SMS, MMS and email campaigns built around your niche.</p>
+      </div>
+      <div class="inbound-banner-right">
+        <div class="inbound-pill">₹400 &nbsp;<span>SMS Calls</span></div>
+        <div class="inbound-pill inbound-pill-gold">₹450 &nbsp;<span>MMS Calls</span></div>
+        <div class="inbound-pill">₹800 &nbsp;<span>All-in-One Bundle</span></div>
+        <a href="inbound-calls.html" class="inbound-cta">View All Packages →</a>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- PROJECTS -->
@@ -612,7 +696,7 @@ h1{animation-delay:.22s;}
       <div class="contact-details">
         <div class="c-row">
           <span class="c-label">Email</span>
-          <a href="mailto:uddiptatechsolutions@techie.com" class="c-val" style="text-decoration:none;">uddiptatechsolutions@techie.com</a>
+          <a href="/cdn-cgi/l/email-protection#4f3a2b2b263f3b2e3b2a2c273c20233a3b2620213c0f3b2a2c27262a612c2022" class="c-val" style="text-decoration:none;"><span class="__cf_email__" data-cfemail="80f5e4e4e9f0f4e1f4e5e3e8f3efecf5f4e9efeef3c0f4e5e3e8e9e5aee3efed">[email&#160;protected]</span></a>
         </div>
         <div class="c-row">
           <span class="c-label">Phone</span>
@@ -671,7 +755,7 @@ h1{animation-delay:.22s;}
 
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── Scroll reveal ──
 const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
 const observer = new IntersectionObserver((entries)=>{
@@ -702,6 +786,25 @@ window.addEventListener('scroll',()=>{
     a.classList.toggle('active', a.getAttribute('href')==='#'+current);
   });
 });
+
+// ── Contact form ──
+const form = document.getElementById('contact-form');
+if(form){
+  form.addEventListener('submit', async(e)=>{
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try{
+      const res = await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+      if(res.ok){
+        form.style.display='none';
+        const msg = document.querySelector('.form-success');
+        if(msg) msg.style.display='block';
+      } else { btn.textContent='Try again'; btn.disabled=false; }
+    } catch(err){ btn.textContent='Try again'; btn.disabled=false; }
+  });
+}
 </script>
 </body>
 </html>
